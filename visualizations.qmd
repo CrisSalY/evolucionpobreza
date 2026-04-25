@@ -391,4 +391,20 @@ heatmap
 La pobreza se concentra en personas desempleadas o con empleo precario, especialmente en el sector informal. Esto muestra que no basta con tener empleo: la calidad del trabajo es un factor clave para reducir la pobreza por ingresos.
 
 Además, la pobreza se concentra principalmente en actividades como agricultura, comercio, construcción y servicios, especialmente entre ocupaciones no calificadas. Esto evidencia que los sectores de baja productividad y alta informalidad agrupan a la mayor población pobre.
- 
+
+## Análisis textual
+
+![Palabras clave acerca de la pobreza](./images/voyant.png){width=1000} 
+
+Como complemento al análisis cuantitativo, se utilizó **Voyant Tools** para explorar el lenguaje y los conceptos predominantes en documentos institucionales relacionados con pobreza y empleo.
+
+Este análisis permite contextualizar estadísticamente los hallazgos y observar cómo el discurso institucional ha incorporado temas como vulnerabilidad, empleo y protección social en los años posteriores a la pandemia.
+
+## Síntesis de hallazgos
+
+Las visualizaciones presentadas permiten concluir que:
+
+- La pandemia marca un punto de inflexión claro en la evolución de la pobreza.
+- Existen desigualdades persistentes entre áreas urbanas y rurales.
+- La pobreza está estrechamente vinculada a la precariedad laboral y al nivel de ingresos.
+- Los patrones laborales refuerzan la necesidad de políticas diferenciadas por región y actividad de ocupación.

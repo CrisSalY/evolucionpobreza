@@ -25,10 +25,8 @@ website:
         file: index.qmd
       - text: "Limpieza de datos"
         file: data_cleaning.qmd
-      - text: "Visualizaciones I "
+      - text: "Visualizaciones"
         file: visualizations.qmd
-      - text: "Visualizaciones II"
-        file: visualizacion2.qmd
 
 format:
   html:    
