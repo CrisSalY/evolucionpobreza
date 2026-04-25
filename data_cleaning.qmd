@@ -1,0 +1,128 @@
+---
+title: "Limpieza y preparación de datos"
+format: html
+---
+
+## Introducción
+
+Antes de realizar el análisis visual, es necesario llevar a cabo un proceso de consolidación, limpieza y transformación de los datos de la Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU) correspondientes al período 2019–2026.  
+
+Esta sección documenta las principales decisiones metodológicas adoptadas para garantizar la consistencia temporal, la comparabilidad de los ingresos y la correcta definición de las variables.
+ 
+***
+
+## Carga y consolidación de la base de datos
+
+Los datos originales de la ENEMDU se encuentran en archivos individuales en formato SPSS (`.sav`), correspondientes a distintos períodos entre 2019 y 2026. Para su análisis conjunto, se desarrolló un script en Python que realiza las siguientes tareas:
+
+- Lectura de todos los archivos `.sav` disponibles.
+- Conversión a dataframes de `pandas`.
+- Concatenación de todos los períodos en una única base consolidada.
+
+De la base original se seleccionaron únicamente las variables relevantes para el análisis demográfico, laboral, de ingresos y pobreza.
+
+### Variables seleccionadas
+
+Las variables utilizadas incluyen:
+
+- **Identificadores**: vivienda, hogar y persona.
+- **Diseño muestral**: factor de expansión, UPM y estrato.
+- **Demografía**: sexo, edad, etnia, estado civil, jefe/a de hogar.
+- **Mercado laboral**: condición de actividad, sector de empleo, rama de actividad.
+- **Ingresos y pobreza**: ingreso laboral, ingreso per cápita, pobreza y pobreza extrema.
+- **Territorio**: área y ciudad.
+
+El resultado de esta etapa fue una base consolidada exportada en formato CSV.
+
+***
+
+## Exploración inicial de los datos
+
+Una vez consolidada la base, se realizó una exploración inicial para:
+
+- identificar tipos de variables,
+- detectar valores faltantes,
+- verificar la presencia de registros inválidos,
+- revisar la distribución general de ingresos y variables clave.
+
+<!-- Esta exploración permitió definir reglas de limpieza específicas y consistentes para el período completo. -->
+
+***
+
+## Limpieza y transformación de variables
+
+### Normalización temporal
+
+La variable `periodo` presenta distintos formatos a lo largo del tiempo. Para garantizar la comparabilidad temporal, se transformó la variable a una variable temporal homogénea.
+
+***
+
+### Tratamiento de ingresos
+
+Las variables de ingresos (`ingrl` e `ingpc`) fueron convertidas a formato numérico, asignando valor cero a registros no válidos o no reportados.
+
+Posteriormente, con el fin de hacer comparables los ingresos a lo largo del tiempo, se realizó una **corrección por inflación** utilizando un diccionario de valores del Índice de Precios al Consumidor (IPC) por año. Los ingresos fueron deflactados dividiéndolos para el IPC correspondiente al año de cada observación.
+
+***
+
+### Variables demográficas y del hogar
+
+- Se estandarizaron variables categóricas (mayúsculas, eliminación de espacios).
+- Se eliminaron registros con información demográfica inconsistente (edad, pobreza).
+
+***
+
+### Mercado laboral y rama de actividad
+
+Las variables relacionadas con empleo y actividad económica fueron:
+
+- recodificadas para unificar categorías,
+- corregidas de errores de codificación textual,
+- y mapeadas a descripciones acortadas en el caso de la rama de actividad económica.
+
+Los registros sin empleo fueron identificados explícitamente para no excluirlos del análisis social.
+
+***
+
+### Pobreza y área geográfica
+
+Para el análisis de pobreza, se mantuvieron únicamente los registros con información válida en los indicadores de pobreza por ingresos y pobreza extrema, siguiendo la definición oficial del INEC.
+ 
+***
+### Diseño muestral y factor de expansión
+
+La ENEMDU es una encuesta por muestreo probabilístico y estratificado, por lo que cada observación representa a un número determinado de personas en la población. Este peso muestral está contenido en la variable `fexp` (factor de expansión).
+
+Durante el proceso de limpieza de datos, el factor de expansión no fue modificado ni recalculado, ya que su uso corresponde a la etapa de análisis estadístico y visualización. En las visualizaciones y estimaciones descriptivas presentadas en este proyecto, `fexp` se utiliza para ponderar los resultados, garantizando que las tasas y promedios reflejen adecuadamente la población nacional.
+
+## Base final utilizada en el análisis
+
+El resultado de este proceso es una base de datos limpia y transformada que constituye el insumo principal para las visualizaciones del proyecto. Esta base:
+
+- integra todos los períodos entre 2019 y 2025,
+- cuenta con ingresos comparables en términos reales,
+- mantiene coherencia demográfica y territorial,
+- y preserva los indicadores oficiales de pobreza del INEC.
+
+El archivo final cuenta con:
+
+- **230 937 observaciones** a nivel individual,
+- **24 variables** que integran información demográfica, laboral, de ingresos, pobreza y territorio.
+
+Este proceso de limpieza y preparación es fundamental para asegurar que los resultados visuales reflejen de manera real la evolución reciente de la pobreza en el Ecuador.
+
+### Distribución de observaciones por año
+
+La siguiente tabla presenta el número de registros disponibles por año luego del proceso de limpieza:
+
+| Año  | Número de observaciones |
+|-----:|------------------------:|
+| 2019 | 58 834 |
+| 2020 | 30 299 |
+| 2021 | 29 765 |
+| 2022 | 28 823 |
+| 2023 | 28 146 |
+| 2024 | 27 423 |
+| 2025 | 27 647 |
+ 
+ 

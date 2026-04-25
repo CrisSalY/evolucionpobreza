@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Evolución de la pobreza y desigualdad en el Ecuador"
+  description: "Análisis visual basado en ENEMDU (2019–2025)"
+  
+  navbar:
+    background: light
+    logo: images/LOGO_MCD.png
+    title: " Evolución de la pobreza en el Ecuador (2019–2025)"
+    # right:
+    #   - icon: image
+    #     href: "#"
+    #     text: ""
+    #     aria-label: "Logo institucional"
+    #     image: images/logo_der.png
+
+  sidebar:
+    style: "floating"
+    search: true
+    contents:
+      - text: "Inicio"
+        file: index.qmd
+      - text: "Limpieza de datos"
+        file: data_cleaning.qmd
+      - text: "Visualizaciones"
+        file: visualizations.qmd
+
+format:
+  html:    
+    embed-resources: true
+    theme:
+      - cosmo
+      - styles/custom.scss
+    toc: true
+    toc-title: "En esta página"
+    toc-location: right
+    fontsize: 1rem
+    linestretch: 1.6
+    page-layout: full
+    smooth-scroll: true
+

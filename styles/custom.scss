@@ -1,0 +1,27 @@
+/*-- scss:rules --*/
+/* Justificar texto */
+p {
+  text-align: justify;
+}
+
+/* Color azul para encabezados */
+h1, h2, h3, h4, h5 {
+  color: #2337f0; /* azul institucional */
+  font-weight: 600;
+}
+
+/* Aumentar tamaño del logo en el navbar */
+.navbar-brand img {
+  max-height: 75px;   /* puedes subir a 80px si lo quieres más grande */
+  width: auto;
+}
+
+/* Ajustes del sidebar */
+.sidebar {
+  font-size: 0.95rem;
+}
+
+/* Mejorar legibilidad */
+body {
+  background-color: #ffffff;
+}

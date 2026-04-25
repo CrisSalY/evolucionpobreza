@@ -1,0 +1,15 @@
+# Quarto outputs
+_site/
+docs/
+*.html
+
+# Quarto cache
+.quarto/_freeze/
+
+# Datos grandes
+*.csv
+*.pdf
+
+# Python
+.venv/
+__pycache__/

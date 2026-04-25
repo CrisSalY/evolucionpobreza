@@ -1,0 +1,74 @@
+<!-- proyecto de visualización de datos
+diseñar visualizaciones adecuadas para responder preguntas analíticas,
+comunicar hallazgos mediante una narrativa visual clara y accesible para un público general.
+-->
+
+---
+title: "Evolución de la pobreza en el Ecuador (2019–2025)"
+format: html
+---
+<!-- 
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+import subprocess
+import sys
+
+subprocess.run(
+    [sys.executable.replace("pythonw.exe", "python.exe"), "lectura.py"],
+    check=False
+)
+
+subprocess.run(
+    [sys.executable.replace("pythonw.exe", "python.exe"), "tratamiento.py"],
+    check=False
+)
+
+``` -->
+## Introducción
+
+La pobreza constituye un desafío estructural en el Ecuador y ha cobrado especial relevancia a partir de la pandemia de COVID-19. La crisis sanitaria tuvo efectos profundos sobre el mercado laboral, los ingresos de los hogares y las condiciones de vida, revelando y amplificando desigualdades preexistentes entre territorios y grupos poblacionales.
+
+En este contexto, analizar la evolución de la pobreza por ingresos resulta fundamental para comprender los impactos sociales recientes y aportar evidencia al debate sobre políticas públicas, empleo y protección social.
+
+**Pobreza:** Un hogar es considerado pobre cuando su ingreso per cápita mensual es inferior al valor de la línea de pobreza, y pobre extremo cuando dicho ingreso se encuentra por debajo de la línea de pobreza extrema.
+
+***
+
+## Objetivos 
+
+Esta página tiene como objetivo analizar, mediante técnicas de visualización de datos, la evolución de la pobreza por ingresos en el Ecuador entre 2019 y 2025. En particular, el proyecto aborda las siguientes líneas de análisis:
+
+- La evolución de la pobreza y la pobreza extrema antes y después de la pandemia.
+- Las diferencias en los niveles de pobreza entre zonas urbanas y rurales.
+- La relación entre pobreza, condiciones laborales y nivel de ingresos. 
+
+Con ello, se busca aportar evidencia visual que contribuya a una comprensión más profunda de las dinámicas recientes de la pobreza en el Ecuador.
+
+## Fuente de datos
+
+Se utilizan datos trimestrales del **Instituto Nacional de Estadística y Censos (INEC)**, provenientes de la **Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU)** para el período 2019–2025 (diciembre).
+
+La base de datos de cada año incluye características de:
+
+- pobreza y pobreza extrema por ingresos,
+- condiciones de empleo,
+- ingresos laborales,
+- variables demográficas,
+- desagregaciones por área (urbano/rural), región y ciudad.
+
+## Estructura
+
+Este sitio se organiza de la siguiente manera:
+
+- **Obtención y preparación de datos**  
+  Descripción del proceso de carga, exploración y transformación de los datos.  
+  [Ir a limpieza de datos](data_cleaning.html)
+
+- **Análisis y visualizaciones**  
+  Presentación del analisis de gráficos interactivos .  
+  [Ir a visualizaciones](visualizations.html)
+
+***
+Este proyecto busca contribuir a una comprensión clara de la evolución reciente de la pobreza en el Ecuador, utilizando herramientas de visualización modernas y datos oficiales comparables.
